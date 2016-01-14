@@ -1,0 +1,16 @@
+diff -Naur setup.py setup.py
+--- setup.py	2015-10-12 09:21:21.000000000 +0200
++++ setup.py	2016-01-12 13:45:12.222570208 +0100
+@@ -7,10 +7,10 @@
+         from pypandoc import convert
+ 
+     except ImportError:
++        from io import open
+         print('warning: pypandoc module not found,'
+               ' could not convert to RST!')
+-
+-        with open(filename) as fd:
++        with open(filename, encoding="utf-8") as fd:
+             out = fd.read()
+ 
+     else:

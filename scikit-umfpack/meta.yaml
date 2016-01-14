@@ -1,0 +1,65 @@
+package:
+  name: scikit-umfpack
+  version: 0.2.1
+
+source:
+  fn: scikit-umfpack-0.2.1.tar.gz
+  url: https://pypi.python.org/packages/source/s/scikit-umfpack/scikit-umfpack-0.2.1.tar.gz
+  md5: 582d6a1b78576d1b6dc8c5f95635c24e
+  patches:
+   # List any patch files here
+   - readme_utf8.fix
+
+build:
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - astroid = astroid:main
+    #
+    # Would create an entry point called astroid that calls astroid.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - scipy
+    - swig
+    - suitesparse
+
+  run:
+    - python
+    - numpy
+    - scipy
+    - suitesparse
+
+test:
+  # Python imports
+  imports:
+    - scikits.umfpack
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://scikit-umfpack.github.io/scikit-umfpack
+  license: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
